@@ -1,0 +1,5 @@
+{
+  "name": "Generator Absensi BAPAS",
+  "description": "Aplikasi untuk generate lembar absensi apel staf bulanan secara otomatis berdasarkan tanggal.",
+  "requestFramePermissions": []
+}
