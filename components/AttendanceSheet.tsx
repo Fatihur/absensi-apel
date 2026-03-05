@@ -39,17 +39,15 @@ export default function AttendanceSheet({ month, year }: AttendanceSheetProps) {
               {/* Header Content */}
               <div className="flex items-center justify-center mb-6 relative border-b-2 border-black pb-4 mx-2">
                 <div className="absolute left-0 top-0">
-                  <Image
+                  <img
                     src="/logo.png"
                     alt="Logo Kemenkumham"
-                    width={70}
-                    height={70}
-                    className="object-contain"
-                    priority
+                    style={{ width: '70px', height: '70px', objectFit: 'contain' }}
                     onError={(e) => {
-                      // Fallback to Wikimedia if local logo fails
-                      const target = e.target as HTMLImageElement;
-                      target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Coat_of_arms_of_the_Ministry_of_Law_and_Human_Rights_of_the_Republic_of_Indonesia.svg/1024px-Coat_of_arms_of_the_Ministry_of_Law_and_Human_Rights_of_the_Republic_of_Indonesia.svg.png";
+                      const target = e.currentTarget;
+                      if (target.src.indexOf('wikimedia') === -1) {
+                        target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Coat_of_arms_of_the_Ministry_of_Law_and_Human_Rights_of_the_Republic_of_Indonesia.svg/1024px-Coat_of_arms_of_the_Ministry_of_Law_and_Human_Rights_of_the_Republic_of_Indonesia.svg.png";
+                      }
                     }}
                   />
                 </div>
