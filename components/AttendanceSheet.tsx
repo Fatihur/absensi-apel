@@ -45,6 +45,12 @@ export default function AttendanceSheet({ month, year }: AttendanceSheetProps) {
                     width={80}
                     height={80}
                     className="object-contain"
+                    priority
+                    onError={(e) => {
+                      // Fallback to Wikimedia if local logo fails
+                      const target = e.target as HTMLImageElement;
+                      target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Coat_of_arms_of_the_Ministry_of_Law_and_Human_Rights_of_the_Republic_of_Indonesia.svg/1024px-Coat_of_arms_of_the_Ministry_of_Law_and_Human_Rights_of_the_Republic_of_Indonesia.svg.png";
+                    }}
                   />
                 </div>
                 <div className="text-center">
@@ -143,9 +149,15 @@ export default function AttendanceSheet({ month, year }: AttendanceSheetProps) {
             size: 330mm 215mm;
             margin: 10mm;
           }
+          html, body {
+            width: 330mm;
+            height: 215mm;
+          }
           body {
             print-color-adjust: exact;
             -webkit-print-color-adjust: exact;
+            margin: 0;
+            padding: 0;
           }
           .no-print {
             display: none !important;
